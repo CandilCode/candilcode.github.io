@@ -28,9 +28,10 @@ document.addEventListener("turbo:load", function() {
 	/* load script after turbolink loaded page */
 
 	/* check if have mobile ?m=1 > redirect to ?m=0 (fix double request event turbo:load) */
-	if (window.location.href.indexOf("?m=1") > -1) {
-		window.location.href = window.location.href.replace("?m=1", "?m=0");
-	}					
+var prinshm1 = window.location.toString();
+if (prinshm1.indexOf(&quot;?m=1&quot;,&quot;?m=1&quot;) &gt; 0) {
+var clean_nprinsh = prinshm1.substring(0, prinshm1.indexOf(&quot;?m=1&quot;));
+window.history.replaceState({}, document.title, clean_nprinsh);};					
 
 	/* get page_type */
 	is_page = $("meta[name='is_page']").attr('content');			
