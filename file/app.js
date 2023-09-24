@@ -28,10 +28,9 @@ document.addEventListener("turbo:load", function() {
 	/* load script after turbolink loaded page */
 
 	/* check if have mobile ?m=1 > redirect to ?m=0 (fix double request event turbo:load) */
-var prinshm1 = window.location.toString();
-if (prinshm1.indexOf(&quot;?m=1&quot;,&quot;?m=1&quot;) &gt; 0) {
-var clean_nprinsh = prinshm1.substring(0, prinshm1.indexOf(&quot;?m=1&quot;));
-window.history.replaceState({}, document.title, clean_nprinsh);};					
+	if (window.location.href.indexOf("?m=1") > -1) {
+		window.location.href = window.location.href.replace("?m=1", "?m=0");
+	}					
 
 	/* get page_type */
 	is_page = $("meta[name='is_page']").attr('content');			
@@ -332,7 +331,7 @@ function relatedPost()
 					if (post.media$thumbnail) {
 						data.image = post.media$thumbnail.url.replace("/s72-c/","/w150/");
 					}else{
-						data.image = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5IJkV10kp3tiqtQpx1qoCO4eEj8WMchebdV8MyXt0Ut1QwH8One2wAYo-qxSwQsTC0y9aQgMu1_sQ-W7zxdo5vPt_kT7JuvEqmKaTpVTs7Ly4DHAkEPacmRQnXpy3SE5Q1xT74L7s8C-Mztb-11cGGnZ3vnMKXWrr2cu8nGHLLXBg1HWhQ6XSRtwH/w300/score%20808%20indonesia.png';
+						data.image = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhF7cecBqwmxOd7RHtNR2yKOTKCLT2hgulikotAYL24h3Com3yWbT_r_4Pw-_Rk9kgQ0ysHuX82mxQcBnGEtkb4b6vlaYkHi1cFDYQELS2GfWPQsOW_YGZUEq3XnLx-6xBLxX73p8-f5jQ1ixLwMErVRK7L61CN1aJslcyMNN85z9Dti4TW_z9_40Rc/s1600/score808%20indonesia.png';
 					}
 
 					posts.push(data);
@@ -484,24 +483,3 @@ function copyThis(data) {
 	/* show message */
 	showToast('Success Copy');
 }		  
-
- function switchq(src){
-    document.getElementById("myIframe").innerHTML = '<iframe class="responsive-iframe" scrolling="no" alt="score 808" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; autoplay" allowfullscreen="allowfullscreen" frameborder="0" height="380" src="'+ src +'" width="100%"></iframe>';
-};
-jQuery(document).ready(function($){ $(".tabs-post-content-widget-id").hide(); $("ul.tabs-post-content-tabs-id li:first a").addClass("tabs-post-current").show(); $(".tabs-post-content-widget-id:first").show(); $("ul.tabs-post-content-tabs-id li a").click(function() { $("ul.tabs-post-content-tabs-id li a").removeClass("tabs-post-current a"); $(this).addClass("tabs-post-current"); $(".tabs-post-content-widget-id").hide(); var activeTab = $(this).attr("href"); $(activeTab).fadeIn(); return false; }); });
-var iframeslazy = document.querySelectorAll("iframe");
-for (var i = 0; i < iframeslazy.length; i++) { iframeslazy[i].setAttribute("loading","lazy-frame"); };
-
-$(document).ready(function(){ 
-    $(window).scroll(function(){ 
-        if ($(this).scrollTop() > 0) { 
-            $('#scroll').fadeIn(); 
-        } else { 
-            $('#scroll').fadeOut(); 
-        } 
-    }); 
-    $('#scroll').click(function(){ 
-        $("html, body").animate({ scrollTop: 0 }, 0); 
-        return false; 
-    }); 
-});
