@@ -282,7 +282,7 @@ function relatedPost()
 		/* lets request all feed label */
 		$.each(postLabels, function(i, label){					
 			async_request.push($.ajax({
-				url:"/feeds/posts/default/-/"+ label + "?alt=json-in-script&max-results=15&callback=?", 
+				url:"/feeds/posts/default/-/"+ label + "?alt=json-in-script&max-results=8&callback=?", 
 				method:'get',
 				dataType: 'jsonp',
 				success: function(data){
@@ -299,7 +299,7 @@ function relatedPost()
 			$.each(responses, function(i, response){
 				$.each(response.feed.entry, function(i, post){
 					let data = [];						
-					data.id = post.id.$t.substr(post.id.$t.indexOf("post-") + 15);
+					data.id = post.id.$t.substr(post.id.$t.indexOf("post-") + 8);
 					data.title = post.title.$t;
 
 					/* get date as format */
