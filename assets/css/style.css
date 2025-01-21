@@ -822,7 +822,7 @@
     -o-transition: .3s ease all;
     transition: .3s ease all;
     cursor: pointer;
-    background-image: url("assets/img/Messaging-chat-support-close-black.svg");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40px' height='40px' viewbox='0 0 40 40'%3E%3Cpath d='M 10,10 L 30,30 M 30,10 L 10,30' stroke='black' stroke-width='4' stroke-linecap='butt' /%3E%3C/svg%3E");
     background-position: center;
     background-size: cover;
     width: 8px;
