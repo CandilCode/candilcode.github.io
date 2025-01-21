@@ -1,672 +1,356 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Candil Code</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Website Company Profile Candil Kuya - Jasa Pembuatan Website</title>
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Website Company Profile Candil Kuya - Jasa Pembuatan Website">
+  <meta name="description" content="Candil Kuya adalah sebuah inisiatif yang didedikasikan untuk dunia teknologi, gaming, dan desain dengan pendekatan terbuka.">
+  <meta name="author" content="Candil Kuya">
 
-  <style>/*=============== GOOGLE FONTS ===============*/
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
-    
-    /*=============== VARIABLES CSS ===============*/
-    :root {
-      /*========== Colors ==========*/
-      /*Color mode HSL(hue, saturation, lightness)*/
-      --first-color: hsl(29, 80%, 58%);
-      --first-color-light: hsl(29, 80%, 70%);
-      --black-color: hsl(29, 16%, 10%);
-      --text-color: hsl(29, 8%, 65%);
-      --body-color: hsl(29, 100%, 99%);
-    
-      /*========== Font and typography ==========*/
-      /*.5rem = 8px | 1rem = 16px ...*/
-      --body-font: "Poppins", sans-serif;
-      --h3-font-size: 1.125rem;
-      --smaller-font-size: 0.75rem;
-    }
-    
-    /*=============== BASE ===============*/
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-    
-    body {
-      font-family: var(--body-font);
-      background-color: var(--text-color);
-    }
-    
-    a {
-      text-decoration: none;
-    }
-    
-    ul {
-      list-style: none;
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    /*=============== CARD ===============*/
-    .container {
-      height: 100vh;
-      display: grid;
-      place-items: center;
-    }
-    
-    .card {
-      position: relative;
-      width: 256px;
-      background-color: var(--black-color);
-      padding: 1.25rem 2rem 3rem;
-      border-radius: 1.5rem;
-      text-align: center;
-      box-shadow: 0px 12px 0px 9px #0024ff;
-    }
-    
-    .card__img {
-      width: 96px;
-      border-radius: 50%;
-    }
-    
-    .card__border {
-      width: 110px;
-      height: 110px;
-      border: 2px solid var(--first-color);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 0.75rem;
-    }
-    
-    .card__name {
-      color: var(--first-color);
-      font-size: var(--h3-font-size);
-      font-weight: 500;
-    }
-    
-    .card__profession {
-      color: var(--text-color);
-      font-size: var(--smaller-font-size);
-      font-weight: 500;
-    }
-    
-    .card__social {
-      width: 200px;
-      background-color: var(--first-color);
-      padding: 0.75rem;
-      border-radius: 3rem;
-      text-align: initial;
-      box-shadow: 0 8px 24px hsla(29, 75%, 56%, 0.3);
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1.75rem;
-      margin: 0 auto;
-      overflow: hidden;
-      transform-origin: 18px 17px;
-    }
-    
-    .card__social-control {
-      position: relative;
-      transform-origin: 18px 18px;
-      transition: transform 0.45s ease;
-      transform: rotate(0);
-    }
-    
-    .card__social-toggle {
-      display: inline-flex;
-      background-color: var(--black-color);
-      color: var(--first-color);
-      font-size: 1.25rem;
-      padding: 0.5rem;
-      border-radius: 50%;
-      cursor: pointer;
-      position: relative;
-      z-index: 10;
-    }
-    
-    .card__social-text {
-      display: block;
-      color: var(--black-color);
-      font-size: var(--smaller-font-size);
-      font-weight: 500;
-    }
-    
-    .card__social-list {
-      display: inline-flex;
-      column-gap: 0.75rem;
-      transform: rotate(135deg);
-      transform-origin: 18px 17px;
-    }
-    
-    .card__social-link {
-      display: inline-flex;
-      background-color: var(--first-color-light);
-      color: var(--black-color);
-      font-size: 1.25rem;
-      padding: 6px;
-      border-radius: 50%;
-    }
-    
-    .card__social-text,
-    .card__social-list {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding-left: 3.1rem;
-    }
-    
-    .card__social-text {
-      top: 0.5rem;
-    }
-    
-    /* Rotate social */
-    .animation .card__social-control {
-      transform: rotate(-135deg);
-    }
-    
-    /* Up animation */
-    .card__social.animation {
-      animation: up-animation 1s ease-in-out forwards;
-    }
-    
-    @keyframes up-animation {
-      0%,
-      100% {
-        transform: rotate(0);
-      }
-      50%,
-      60% {
-        transform: rotate(-3deg);
-      }
-      88% {
-        transform: rotate(1deg);
-      }
-    }
-    
-    /* Down animation */
-    .card__social.down-animation {
-      animation: down-animation 1s ease-in-out forwards;
-    }
-    
-    @keyframes down-animation {
-      0%,
-      100% {
-        transform: rotate(0);
-      }
-      50%,
-      60% {
-        transform: rotate(6deg);
-      }
-      0%,
-      88% {
-        transform: rotate(-1deg);
-      }
-    }
-    /* From the :root element you can easily change the colors of the design, its size and so on. */
-:root {
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://candilkuya.com/">
+  <meta property="og:title" content="Website Company Profile Candil Kuya - Jasa Pembuatan Website">
+  <meta property="og:description" content="Candil Kuya adalah sebuah inisiatif yang didedikasikan untuk dunia teknologi, gaming, dan desain dengan pendekatan terbuka.">
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNzj_D6GJcnk5cLDuAgH_yqxY8CyV6qY9lujfOSjoZRlNIqPwjCcx4XexB6X2QtRXn2qldlolLYaUuohxCMPhxnBKGHWWsjukuymAmx3PVdPW9H9O-Jp2QZUlLBUNaLqQ3TEwTUdM3b0TNWGaIPHpre0HgqB3gDxVZnvhBewh1ru2TZVJDMH2ApexiwFw/s1600/Candil%20kuya.jpg">
 
-/* You can change the font family in the whole design here. (You need to add the font family to the codes.) */
---font_family: 'Inter', sans-serif;
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://candilkuya.com/">
+  <meta property="twitter:title" content="Website Company Profile Candil Kuya - Jasa Pembuatan Website">
+  <meta property="twitter:description" content="Candil Kuya adalah sebuah inisiatif yang didedikasikan untuk dunia teknologi, gaming, dan desain dengan pendekatan terbuka.">
+  <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNzj_D6GJcnk5cLDuAgH_yqxY8CyV6qY9lujfOSjoZRlNIqPwjCcx4XexB6X2QtRXn2qldlolLYaUuohxCMPhxnBKGHWWsjukuymAmx3PVdPW9H9O-Jp2QZUlLBUNaLqQ3TEwTUdM3b0TNWGaIPHpre0HgqB3gDxVZnvhBewh1ru2TZVJDMH2ApexiwFw/s1600/Candil%20kuya.jpg">
 
-/* You can change the font size here, is proportional to all texts. */
---font_size: 16px;
+    <!-- Title -->
+    <title>Candil Kuya - Jasa Website</title>
 
-/* You can change the background color by typing the color code. (If you do not enter a background-image image, the background-color will be active.) */
---background_color: #000;
---background_image: url("https://ardacarofficial.github.io/links-website/img/wallpaper.png");
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-/* You can change the frame thickness and color of the picture by typing the number of pixels and the color code. */
---image_border_color: #1f232e;
---image_border_px: 3px;
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-/* You can change the width and size of the picture by typing the number of pixels. */
---image_width: 140px;
---image_height: 140px;
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
-/* You can change the colors of the title and description section by typing the color codes. */
---title_color: #fff;
---description_color: #fff;
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
 
-/* You can change the colors of social media icons by changing the color code. */
---svg_color: #fff;
-
-/* You can change the background, text color and active color of the menu by changing the color codes. */
---menu_background_color: #1d1e24;
---menu_text_color: #fff;
---menu_active_text_color: #d7e04f;
-
-/* You can change the button's background, text color and active color by changing the color codes. */
---button_background_color: #1d1e24;
---button_text_color: #fff;
---button_text_hover_color: #d7e04f;
-
-/* You can change the background, text color and active color of the text field by changing the color codes. */
---textarea_background_color: #1d1e24;
---textarea_text_color: #fff;
---textarea_link_text_color: #d7e04f;
-
-/* You can change the background, text color and active color of the footer area by changing the color codes. */
---footer_background_color: #1d1e24;
---footer_text_color: #fff;
---footer_link_text_color: #d7e04f;
-}
-
-/* Basic Codes */
-
-
-
-.flex_column_center {
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-}
-
-.flex_row_center {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-}
-
-.flex_no_wrap_row_center {
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: center;
-align-items: center;
-}
-
-/* Logo, Title and Description Codes */
-
-.header_img {
-padding-top: 1em;
-}
-
-.header_img img {
-height: var(--image_height);
-width: var(--image_width);
-border: var(--image_border_px) solid var(--image_border_color);
-border-radius: 50%;
-margin-bottom: 0.5em;
-}
-
-.header_text h1 {
-color: var(--title_color);
-font-size: 2em;
-}
-
-.header_text h2 {
-color: var(--description_color);
-font-size: 1.5em;
-}
-
-/* Social Media Icons Codes */
-
-.header_svg_list {
-padding-top: 1em;
-}
-
-.header_svg_item {
-width: 2.1em;
-height: 2.1em;
-cursor: pointer;
-}
-
-.header_svg_item + .header_svg_item {
-margin-left: 1em;
-}
-
-.header_svg_item svg {
-fill: var(--svg_color);
-}
-
-/* Menu Codes */
-
-#header_nav_menu_item_1 {
-color: var(--menu_active_text_color);
-}
-
-#header_nav_menu_item_2,
-#header_nav_menu_item_3 {
-color: var(--menu_text_color);
-}
-
-
-.header_nav_menu_list {
-padding-top: 2em;
-margin-left: 1em;
-margin-right: 1em;
-}
-
-.header_nav_menu_item {
-color: var(--menu_text_color);
-background-color: var(--menu_background_color);
-text-align: center;
-list-style-type: none;
-cursor: pointer;
-padding: 0.5em;
-border-radius: 0.3em;
-cursor: pointer;
-transition: 0.10s ease;
-font-size: 1.1em;
-}
-
-.header_nav_menu_item + .header_nav_menu_item {
-margin-left: 0.4em;
-}
-
-/* Menu Container Codes */
-
-main {
-margin-bottom: auto;
-}
-
-#main_section_container_2, #main_section_container_3 {
-display: none;
-}
-
-.main_a_item {
-margin-top: 1em;
-text-decoration: none;
-}
-
-.main_text_item {
-display: flex;
-align-items: center;
-justify-content: center;
-color: var(--button_text_color);
-background-color: var(--button_background_color);
-width: 41em;
-margin-top: 1em;
-padding: 0.8em;
-border-radius: 0.3em;
-min-height: 3.7em;
-text-align: center;
-box-shadow:0px -1px 0px 3px #0024ff;
-}
-
-.main_button_item {
-color: var(--button_text_color);
-background-color: var(--button_background_color);
-width: 41em;
-border-radius: 1em;
-min-height: 3.7em;
-text-align: center;
-cursor: pointer;
-}
-
-.main_small_button_list {
-display: flex;
-flex-direction: row;
-}
-
-.main_small_a_item {
-margin-top: 1em;
-text-decoration: none;
-}
-
-.main_small_a_item + .main_small_a_item {
-margin-left: 10px;
-}
-
-.main_small_button_item:hover,
-.main_button_item:hover {
-color: var(--button_text_hover_color);
-transform: scale(1.02);
-transition: 0.10s ease;
-}
-
-.main_small_button_item {
-color: var(--button_text_color);
-background-color: var(--button_background_color);
-width: calc(41em / 2 - 5px);
-border-radius: 1em;
-min-height: 3.7em;
-text-align: center;
-cursor: pointer;
-}
-
-/* Footer Codes */
-
-.footer_div_item {
-color: var(--footer_text_color);
-padding: 1em;
-margin-top: 1.5em;
-}
-
-.footer_a_item {
-color: var(--footer_link_text_color);
-text-decoration: none;
-}
-
-/* Responsive Codes */
-
-@media (max-width: 768px) { 
-.main_text_item {
-  width: 92vw;
-}
-
-.main_small_button_item {
-  width: calc(92vw / 2 - 5px);;
-}
-
-.main_button_item {
-  width: 92vw;
-}
-}
-
-</style>
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-  />
-
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
 
-  <div class="container">
-    
-    <div class="card">
-      <div class="card__border">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0Tqblo7QiTZL1l_qXB7FyS8c4gSz9ZyMeAbVy7Bd82JNMCQBKepYt73taMjkEUw50nD6fH3eA8A5D5k1360DvItQTRGcrOmwrTd6LQOVlbnX6WDfU2SWz_SG9tqWJVw_JkqlDN0OKvbRiaph_h9BI_bmwD8IajSPmHL9vQ25Z1v-HG597H4t6JomlEUg/s1600/_e-Sports%20Team%20Gammer%20Black%20Skull%20Logo.png" alt="card image" class="card__img" />
-      </div>
-
-      <h3 class="card__name">Sandi Priyadi</h3>
-      <span class="card__profession">YT Creator</span>
-
-      <div class="card__social" id="card-social">
-        <div class="card__social-control">
-          <!-- Toggle Button -->
-          <div class="card__social-toggle" id="card-toggle">
-            <i class="ri-add-line"></i>
-          </div>
-
-          <span class="card__social-text">My social networks</span>
-
-          <!-- Card Social -->
-          <ul class="card__social-list">
-            <a href="https://www.facebook.com/sandi.priyadi.1" target="_blank" class="card__social-link">
-              <i class="ri-facebook-line"></i>
+<body id="home" class="d-flex flex-column h-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light py-4 bg-nav">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="https://candilkuya.com">
+                <img src="assets/img/logo.svg" alt="Digital Creative" width="42" height="42" class="d-inline-block mt--2 me-2">
+                <span class="text-body fs-4 fw-bolder">Candil Kuya</span>
             </a>
-
-            <a href="https://www.instagram.com/candilcode" target="_blank" class="card__social-link">
-              <i class="ri-instagram-line"></i>
-            </a>
-
-            <a href="https://www.youtube.com/c/candilcode/" target="_blank" class="card__social-link">
-              <i class="ri-youtube-line"></i>
-            </a>
-          </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse py-3 py-lg-1" id="navbarSupportedContent">
+                <!-- Menu -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <!-- Social Media -->
+                <div class="d-flex mt-3 ms-3 mt-md-0 ms-md-0">
+                    <a href="https://www.facebook.com/sandi.priyadi.1" target="_blank" class="btn btn-social-media me-3">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/candil_kuya/" target="_blank" class="btn btn-social-media me-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/c/candilcode/" target="_blank" class="btn btn-social-media me-3">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=+6282295644497&text=assalamualaikum%20candil%20kuya.." target="_blank" class="btn btn-social-media">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <nav>
-      <ul class="header_nav_menu_list flex_no_wrap_row_center">
-        <li data-target="#main_section_container_1" id="header_nav_menu_item_1" class="header_nav_menu_item" href="">Coding</li>
-        <li data-target="#main_section_container_2" id="header_nav_menu_item_2" class="header_nav_menu_item" href="">Gaming</li>
-        <li data-target="#main_section_container_3" id="header_nav_menu_item_3" class="header_nav_menu_item" href="">Contact Me</li>
-      </ul>
     </nav>
-        <main>
-    <!-- Menu Container 1 Codes Start -->
-    <section id="main_section_container_1" class="flex_column_center">
-      <!-- Menu Text Item -->
-      <div class="main_text_item">
-        <p>Youtube Candil Code Merupakan Channel yang membahas tentang Programming, ada banyak Open Source Gratis Yang bisa kamu pelajari dan juga kembangin sesuai kebutuhan.</p>
-      </div>
-      <!-- Menu Small Item -->
-      <div class="main_small_button_list">
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=9h7hx7B_WYI&list=PLvclmwBIQD8ddoPjxBXc5K6dHsDqk3Eg7&index=3" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Password Download</button>
-        </a>
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=rKv726S-9JQ&list=PLvclmwBIQD8ddoPjxBXc5K6dHsDqk3Eg7&index=5" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Cara Install Codeigniter</button>
-        </a>
-      </div>
-      <!-- Menu Small Item -->
-      <div class="main_small_button_list">
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=z61TamRwLfA&list=PLvclmwBIQD8ddoPjxBXc5K6dHsDqk3Eg7&index=4" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Cara Install Laravel</button>
-        </a>
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=LQi6GpeQxnY&list=PLvclmwBIQD8ddoPjxBXc5K6dHsDqk3Eg7&index=9" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Cara Ubah Password</button>
-        </a>
-      </div>
-      <!-- Menu Item -->
-      <a class="main_a_item" href="https://code.candilkuya.com" target="_blank" rel="nofollow">
-        <button class="main_button_item">Download SC Gratis</button>
-      </a>
-      <!-- Menu Item -->
-      <a class="main_a_item" href="https://trakteer.id/CandilCode" target="_blank" rel="nofollow">
-        <button class="main_button_item">traktir Coffee</button>
-      </a>
-    </section>
-    <!-- Menu Container 1 Codes End -->
 
-    <!-- Menu Container 2 Codes Start -->
-    <section id="main_section_container_2" class="flex_column_center">
-      <!-- Menu Text Item -->
-      <div class="main_text_item">
-        <p>Selain Programming, candil code atau candil kuya juga merupakan channel gamming yang bisa kamu tonton dan nikmati videonya!</p>
-      </div>
-      <!-- Menu Small Item -->
-      <div class="main_small_button_list">
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=JkKfAa2WSFY&list=PLvclmwBIQD8fWKsr1zfSLrWI_S06wzYvI&index=6" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Gameplay Mobile Legends</button>
-        </a>
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=4pp7uZ0oyfw&list=PLvclmwBIQD8fWKsr1zfSLrWI_S06wzYvI&index=31" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Gameplay Efootball</button>
-        </a>
-      </div>
-      <!-- Menu Small Item -->
-      <div class="main_small_button_list">
-        <a class="main_small_a_item" href="https://chanel.candilkuya.com" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Download Game</button>
-        </a>
-        <a class="main_small_a_item" href="https://www.youtube.com/watch?v=TWldre3AqPs&list=PLvclmwBIQD8fWKsr1zfSLrWI_S06wzYvI" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Playlist Game </button>
-        </a>
-      </div>
-      <!-- Menu Item -->
-      <a class="main_a_item" href="https://wa.me/6283815432987?text=Assalamualaikum%20Candil%20%20Kuya" target="_blank" rel="nofollow">
-        <button class="main_button_item">Bantuan Instalasi</button>
-      </a>
-      <!-- Menu Item -->
-      <a class="main_a_item" href="https://trakteer.id/CandilCode" target="_blank" rel="nofollow">
-        <button class="main_button_item">Traktir Coffee</button>
-      </a>
-    </section>
-    <!-- Menu Container 2 Codes End -->
+    <!-- Main Content -->
+    <main class="flex-shrink-0">
+        <!-- Heroes -->
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5">
+                <div class="col-lg-5">
+                    <img src="assets/img/heroes.svg" class="d-block mx-lg-auto img-fluid" alt="Digital Creative" loading="lazy">
+                </div>
+                <div class="col-lg-7">
+                    <h1 class="fw-bold lh-2 mb-4">Candil Kuya - PT Mata Kreasi Nusantara</h1>
+                    <p class="lead mb-5">Kami Memiliki Pengalaman & Profesionalitas, Wujudkan impian Anda untuk memiliki website dengan fitur lengkap, biaya murah dan pengerjaan yang cepat.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="https://api.whatsapp.com/send/?phone=+6282295644497&text=assalamualaikum%20candil%20kuya.." class="btn btn-primary rounded-pill px-4 py-2"><i class="bi bi-whatsapp me-2"></i> Konsultasi Gratis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Menu Container 3 Codes Start -->
-    <section id="main_section_container_3" class="flex_column_center">
-      <!-- Menu Text Item -->
-      <div class="main_text_item">
-        <p>Kontak Aktip Layanan Jasa Pembuatan Website/Aplikasi untuk bahan skripsi ataupun Siap Pakai, Bisa Kamu hubungi sesuai sosmed yang kamu miliki !</p>
-      </div>
-      <!-- Menu Small Item -->
-      <div class="main_small_button_list">
-        <a class="main_small_a_item" href="https://www.facebook.com/sandi.priyadi.1/" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Facebook</button>
-        </a>
-        <a class="main_small_a_item" href="https://www.instagram.com/candilcode/" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Instagram</button>
-        </a>
-      </div>
-      <!-- Menu Small Item -->
-      <div class="main_small_button_list">
-        <a class="main_small_a_item" href="https://www.tiktok.com/@candilkuya" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Tiktok</button>
-        </a>
-        <a class="main_small_a_item" href="https://wa.me/6283815432987?text=Assalamualaikum%20Candil%20%20Kuya" target="_blank" rel="nofollow">
-          <button class="main_small_button_item">Whatsapp</button>
-        </a>
-      </div>
-      <!-- Menu Item -->
-      <a class="main_a_item" href="https://t.me/candilcode" target="_blank" rel="nofollow">
-        <button class="main_button_item">Join Grup Tele</button>
-      </a>
-      <!-- Menu Item -->
-      <a class="main_a_item" href="https://www.facebook.com/groups/sourcecodephp" target="_blank" rel="nofollow">
-        <button class="main_button_item">Join Grup Facebook</button>
-      </a>
-    </section>
-    <!-- Menu Container 3 Codes End -->
-  </main>
-  <footer>
-    <!-- Footer Codes Start -->
-    <div class="footer_div_item flex_row_center">
-      <a class="footer_a_item" href="#link">Candil Code</a>&nbsp;| Candil Kuya
-    </div>
-  </footer>  </div>
+        <!-- Services -->
+        <div id="services" class="container text-center py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="fw-bold lh-2 mb-3">OUR SERVICES</h3>
+                    <p class="lead">Kami Candil Kuya by PT Mata Kreasi Nusantara merupakah sebuah perusahaan yang bergerak di bidang Teknologi Informasi.</p>
+                </div>
+            </div>
 
-  <!--=============== MAIN JS ===============-->
-  
-  <script>/*=============== SHOW SOCIAL NETWORKS ===============*/
-    const showSocial = (toggleCard, socialCard) => {
-      const toggle = document.getElementById(toggleCard),
-        social = document.getElementById(socialCard);
-    
-      toggle.addEventListener("click", () => {
-        //If animation class exist = down-animaiton class add
-        if (social.classList.contains("animation")) {
-          social.classList.add("down-animation");
-    
-          setTimeout(() => {
-            social.classList.remove("down-animation");
-          }, 1000);
-        }
-        //Add the animation to the div tag card__social
-        social.classList.toggle("animation");
-      });
-    };
-    
-    showSocial("card-toggle", "card-social");
-    /* Menu Active Codes */
+            <div class="row py-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="card border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-3 p-sm-5">
+                            <div class="feature-icon-1 bg-primary bg-gradient mb-4">
+                                <i class="bi-filetype-html"></i>
+                            </div>
+                            <h3>Web Design</h3>
+                            <p>Web design adalah proses merancang dan membuat tampilan sebuah situs web agar menarik, fungsional, dan mudah digunakan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="card border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-3 p-sm-5">
+                            <div class="feature-icon-1 bg-primary bg-gradient mb-4">
+                                <i class="bi-code-slash"></i>
+                            </div>
+                            <h3>Web Development</h3>
+                            <p>Proses membangun dan mengembangkan situs web menggunakan teknologi seperti HTML, CSS, JavaScript, serta backend server.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="card border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-3 p-sm-5">
+                            <div class="feature-icon-1 bg-primary bg-gradient mb-4">
+                                <i class="bi-display"></i>
+                            </div>
+                            <h3>Free Open Source</h3>
+                            <p>Candil Code lahir dari semangat open source. Platform ini membagikan berbagai tutorial, kode, dan proyek-proyek open source yang bisa diakses siapa saja.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-let targets = document.querySelectorAll('[data-target]')
-targets.forEach(element => {
-  element.addEventListener('click', () => {
-    var target = document.querySelector(element.dataset.target)
-    targets.forEach(element2 => {
-      var target2 = document.querySelector(element2.dataset.target)
-      element2.style.color = 'var(--menu_text_color)'
-      target2.style.display = 'none'
-    });
-    element.style.color = 'var(--menu_active_text_color)'
-    target.style.display= 'flex'
-  })
-})
-    </script>
+        <!-- About -->
+        <div id="about" class="container text-center py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="fw-bold lh-2 mb-3">ABOUT US</h3>
+                    <p class="lead">Candil Code adalah sebuah inisiatif yang didedikasikan untuk dunia teknologi, gaming, dan desain dengan pendekatan terbuka. 
+                        </p>
+                </div>
+            </div>
+
+            <div class="row align-items-center text-start g-5 py-4">
+                <div class="col-lg-5">
+                    <img src="assets/img/about.svg" class="d-block mx-lg-auto img-fluid" alt="Digital Creative" loading="lazy">
+                </div>
+                <div class="col-lg-7">
+                    <h4 class="fw-bold lh-2 mb-3">Candil Code: Platform Terbuka untuk Kreativitas dan Teknologi</h4>
+                    <p>Nama Candil Code sendiri mencerminkan cahaya kecil yang menerangi jalan di tengah gelap, sebuah simbol semangat untuk berbagi ilmu dan kreativitas tanpa batas.</p>
+                    <p>Candil Code tidak hanya hadir dalam bentuk tulisan di blog, tetapi juga video kreatif di YouTube. Dengan kanal YouTube bernama Candil Kuya, platform ini membahas topik seperti pemrograman, desain, hingga tips gaming secara santai namun informatif.
+
+                        Candil Code adalah lebih dari sekadar platform; ini adalah gerakan yang mengajak semua orang untuk terus belajar, berbagi, dan berkembang. Dengan semangat "terbuka untuk semua," Candil Code siap menjadi inspirasi di dunia teknologi, gaming, dan desain.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div id="portfolio" class="container text-center py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="fw-bold lh-2 mb-3">OUR PORTFOLIO</h3>
+                    <p class="lead">Portofolio Jasa Pembuatan Website Candil Kuya by PT Mata Kreasi Nusantara</p>
+                </div>
+            </div>
+
+            <div class="row text-start py-4">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="mb-3">
+                                <a href="https://blog.candilkuya.com/" target="_blank">
+                                    <img src="assets/img/portfolio/pengajuan-kom-lab.jpg" alt="Portfolio candil kuya" class="card-img-top img-fluid rounded-4">
+                                </a>
+                            </div>
+                            <p class="fw-semibold">Aplikasi Pengaduan Kerusakan Komputer Laboratorium</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="mb-3">
+                                <a href="https://blog.candilkuya.com/" target="_blank">
+                                    <img src="assets/img/portfolio/resto.jpg" alt="Portfolio Aplikasi Manajemen Kasir Resto Dan Cafe" class="card-img-top img-fluid rounded-4">
+                                </a>
+                            </div>
+                            <p class="fw-semibold">Aplikasi Manajemen Kasir Resto Dan Cafe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="mb-3">
+                                <a href="https://blog.candilkuya.com/" target="_blank">
+                                    <img src="assets/img/portfolio/ppdb-online-ponpes.jpg" alt="Portfolio Aplikasi PPDB Online Pondok Pesantren" class="card-img-top img-fluid rounded-4">
+                                </a>
+                            </div>
+                            <p class="fw-semibold">Aplikasi PPDB Online Pondok Pesantren</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="mb-3">
+                                <a href="https://blog.candilkuya.com/" target="_blank">
+                                    <img src="assets/img/portfolio/persediaan-aset.jpg" alt="Portfolio Sistem Informasi Persediaan Aset" class="card-img-top img-fluid rounded-4">
+                                </a>
+                            </div>
+                            <p class="fw-semibold">Sistem Informasi Persediaan Aset</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="mb-3">
+                                <a href="https://blog.candilkuya.com/" target="_blank">
+                                    <img src="assets/img/portfolio/pinjam-buku-perpus.jpg" alt="Portfolio Aplikasi Peminjaman Buku Perpustakaan" class="card-img-top img-fluid rounded-4">
+                                </a>
+                            </div>
+                            <p class="fw-semibold">Aplikasi Peminjaman Buku Perpustakaan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="mb-3">
+                                <a href="https://blog.candilkuya.com/" target="_blank">
+                                    <img src="assets/img/portfolio/pengaduan-pln.jpg" alt="Portfolio" class="card-img-top img-fluid rounded-4">
+                                </a>
+                            </div>
+                            <p class="fw-semibold">Sistem Informasi Pengaduan PLN</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="container text-center pt-4 pb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="fw-bold lh-2 mb-3">CONTACT US</h3>
+                    <p class="lead">Kontak Aktip Layanan Jasa Pembuatan Website/Aplikasi untuk bahan skripsi ataupun Siap Pakai</p>
+                </div>
+            </div>
+
+            <div class="row align-items-start text-start g-5 pt-4 pb-5">
+                <div class="col-lg-7">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.5634240142444!2d107.79720019999999!3d-6.4500519999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6939bd85cad98f%3A0x275bcf66db2f3763!2sCandil%20Kuya%20-%20Jasa%20Website!5e0!3m2!1sid!2sid!4v1737462684939!5m2!1sid!2sid" class="rounded-4 shadow-sm" width="100%" height="410" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card h-100 border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 pb-0">
+                            <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-geo-alt text-primary fs-3"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">Address</h5>
+                                    <p>Pagaden - Subang, Jawabarat</p>
+                                </div>
+                            </div>
+                            <hr class="hr-dotted mt-0">
+                            <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-whatsapp text-primary fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">WhatsApp</h5>
+                                    <p>+62 838-1543-2987</p>
+                                </div>
+                            </div>
+                            <hr class="hr-dotted mt-0">
+                            <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-envelope text-primary fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">Email</h5>
+                                    <p>sandipriyadi107@gmail.com</p>
+                                </div>
+                            </div>
+                            <hr class="hr-dotted mt-0">
+                            <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-clock text-primary fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">Working Hours</h5>
+                                    <p>Monday - Saturday, 09.00 AM - 16.00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="chat-support-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-4 bg-white">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center align-items-md-left text-body">
+                <div class="copyright text-center mb-2 mb-md-0">
+                    &copy; 2025 - <a href="https://candilkuya.com/" target="_blank" class="fw-bolder">Candil Kuya</a>. All rights reserved.
+                </div>
+                <div class="link ms-md-auto">
+                    <a href="https://candilkuya.com/" target="_blank">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <!-- Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 
 </html>
