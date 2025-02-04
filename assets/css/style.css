@@ -2859,3 +2859,6 @@ body {
 .footer .link a:hover {
   color: #0d6efd;
 }
+#histats_counter {
+    text-align: center;
+}
