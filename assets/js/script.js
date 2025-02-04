@@ -18,11 +18,11 @@ $(document).ready(function() {
             },
           onlineDay: {
               'sunday': '00:00-23:59', 
-              'monday': '00:00-12:00 13:00-00:00',
-              'tuesday': '08:00-12:00 12:00-08:00',
-              'wednesday': '00:00-12:00 12:00-00:00',
-              'thursday': '08:00-12:00 13:00-17:00',
-              'friday': 'closed',
+              'monday': '00:00-23:59',
+              'tuesday': '00:00-23:59',
+              'wednesday': '00:00-23:59',
+              'thursday': '00:00-23:59',
+              'friday': '00:00-23:59',
           }, // 00:00-12:00 13:00-17:00 or 00:00-23:59 or closed           data JSON
           
             platform: 'whatsapp', // Platform to use (whatsapp, messenger, telegram, viber, snapchat, email, sms, link)
