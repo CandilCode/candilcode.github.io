@@ -7,7 +7,7 @@ $(document).ready(function() {
         button: {
             position: 'right', // left or right
             style: 2, // 1,2,3,4,5,6,7
-            src: '<img src="https://img.freepik.com/premium-photo/female-customer-service-3d-cartoon-avatar-portrait_839035-194113.jpg" alt="">', // Example icon or <i class="fa-brands fa-whatsapp"></i>
+            src: '<img src="https://img.freepik.com/premium-photo/female-customer-service-3d-cartoon-avatar-portrait_839035-194113.jpg" alt="candil kuya">', // Example icon or <i class="fa-brands fa-whatsapp"></i>
             speechBubble: 'Butuh bantuan? Ngobrol dengan kami!',
             pulseEffect: true,
             text: {
@@ -23,12 +23,13 @@ $(document).ready(function() {
               'wednesday': '00:00-23:59',
               'thursday': '00:00-23:59',
               'friday': '00:00-23:59',
+             'saturday': '00:00-23:59',
           }, // 00:00-12:00 13:00-17:00 or 00:00-23:59 or closed           data JSON
           
             platform: 'whatsapp', // Platform to use (whatsapp, messenger, telegram, viber, snapchat, email, sms, link)
             customLink: 'https://candilkuya.com', // this if platform (link)
             customLinkClore: '#b200e9', // this if platform (link)
-            number: '+6282295644497', // Contact number or username (whatsapp, messenger, telegram, viber, snapchat, email, sms,) not for link
+            number: '+6283815432987', // Contact number or username (whatsapp, messenger, telegram, viber, snapchat, email, sms,) not for link
         },
     });
 }); 
