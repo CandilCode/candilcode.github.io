@@ -7,8 +7,8 @@ $(document).ready(function() {
         button: {
             position: 'right', // left or right
             style: 2, // 1,2,3,4,5,6,7
-            src: '<img src="https://img.freepik.com/premium-photo/female-customer-service-3d-cartoon-avatar-portrait_839035-194113.jpg" alt="candil kuya">', // Example icon or <i class="fa-brands fa-whatsapp"></i>
-            speechBubble: 'Butuh bantuan? Ngobrol dengan kami!',
+            src: '<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxROriMioWuqbkYSynSZlk7tC3xRDWZT7b3XIoKT8ahPT6OlRyJR_FS_WJ-d4OCV1tyBS4pfZ1SxqG8nlePDPu4J7KwQeD8dQEnx1BMpxnBXlOOlv0EAwuBZPmqSGMC3PF3Zy_h3gSa4tJqBt29tu-Syn6CFtPefcFNx31mOMdTpbQxrSKcbOZV9qsmU0/s1600/Candil%20Kuya.jpg" alt="candil kuya">', // Example icon or <i class="fa-brands fa-whatsapp"></i>
+            speechBubble: 'Konsultasi Gratis!',
             pulseEffect: true,
             text: {
                 title: 'Need help? Chat with us',
