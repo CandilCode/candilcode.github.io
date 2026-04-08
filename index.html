@@ -25,12 +25,36 @@
 <meta name="yandex-verification" content="f89fe6cca020dc7c" />
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+  <link rel="canonical" href="https://candilkuya.com/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#4f46e5">
+
+<!-- Preconnect biar cepat -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Preload image penting -->
+<link rel="preload" as="image" href="https://files.catbox.moe/alcmz1.gif">
+<link rel="preload" as="image" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/...jpg">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Candil Kuya",
+ "url": "https://candilkuya.com/",
+ "potentialAction": {
+   "@type": "SearchAction",
+   "target": "https://candilkuya.com/?s={search_term_string}",
+   "query-input": "required name=search_term_string"
+ }
+}
+</script>  <script>
     tailwind.config = {
       darkMode: 'class'
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');:root {
   --primary-color: #4f46e5;
@@ -43,7 +67,7 @@ body {
 
 .banner {
   height: 200px;
-  background-image: url('https://files.catbox.moe/alcmz1.gif');
+  background-image: url('https://files.catbox.moe/5hyyp8.gif');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -372,7 +396,7 @@ body {
   <!-- Profile Image --> 
     <div class="flex justify-center relative -mt-16 z-20">
   <div class="w-32 h-32 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800 relative">
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxROriMioWuqbkYSynSZlk7tC3xRDWZT7b3XIoKT8ahPT6OlRyJR_FS_WJ-d4OCV1tyBS4pfZ1SxqG8nlePDPu4J7KwQeD8dQEnx1BMpxnBXlOOlv0EAwuBZPmqSGMC3PF3Zy_h3gSa4tJqBt29tu-Syn6CFtPefcFNx31mOMdTpbQxrSKcbOZV9qsmU0/s1600/Candil%20Kuya.jpg" 
+    <img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxROriMioWuqbkYSynSZlk7tC3xRDWZT7b3XIoKT8ahPT6OlRyJR_FS_WJ-d4OCV1tyBS4pfZ1SxqG8nlePDPu4J7KwQeD8dQEnx1BMpxnBXlOOlv0EAwuBZPmqSGMC3PF3Zy_h3gSa4tJqBt29tu-Syn6CFtPefcFNx31mOMdTpbQxrSKcbOZV9qsmU0/s1600/Candil%20Kuya.jpg" 
          alt="Profile" 
          class="w-full h-full object-cover rounded-full" 
          onerror="this.onerror=null;this.src='https://placehold.co/300x300?text=Profile+Photo'" />
@@ -434,11 +458,14 @@ body {
 
 <div class="music-player mb-8">
   <div class="cover-image">
-    <img src="https://files.catbox.moe/tnjqna.jpg" alt="Cover Image">
+    <img loading="lazy" src="https://files.catbox.moe/tnjqna.jpg" alt="Cover Image">
   </div>
   <div class="player-controls">
-    <audio id="audio-player" src="https://files.catbox.moe/vfbecq.mp3"></audio>
-    <div class="music-title">Everything U Are - Hindia</div>
+   <!-- <audio id="audio-player" src="https://files.catbox.moe/vfbecq.mp3"></audio>-->
+    <audio id="audio-player" autoplay muted playsinline>
+  <source src="https://files.catbox.moe/4autmu.mp3" type="audio/mpeg">
+</audio>
+    <div class="music-title">HARGA DIRI & FILOSOFI KOPI - "AIR, KOPI, DAN EVOLUSI"</div>
     <div class="flex items-center w-full mt-2">
       <button class="play-button" onclick="togglePlay()">
         <i class="fas fa-play"></i>
@@ -648,5 +675,24 @@ function updateBirthdayCountdown() {
 
   updateBirthdayCountdown();
   </script>
+  <script>
+const audio = document.getElementById("audio-player");
+
+// Auto play (muted dulu)
+window.addEventListener("load", () => {
+  audio.play().catch(() => {});
+});
+
+// Unmute saat user interaksi
+function unlockAudio() {
+  audio.muted = false;
+  audio.play();
+  document.removeEventListener("click", unlockAudio);
+  document.removeEventListener("scroll", unlockAudio);
+}
+
+document.addEventListener("click", unlockAudio);
+document.addEventListener("scroll", unlockAudio);
+</script>
   </body>
 </html>
